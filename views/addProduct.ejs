@@ -1,0 +1,27 @@
+<%-include('parts/head.ejs')%>
+
+<%-include('parts/navbar.ejs')%>
+
+<div class="container text-center">
+    <h3>Add Product</h3>
+    <form action="/seller/add" method="post">
+
+        <input type="text" class="form-control" name="name" placeholder="Name">
+        <input type="number" class="form-control" name="price" placeholder="Price">
+        <input type="text" class="form-control" name="description" placeholder="Description">
+        <input type="text" class="form-control" name="imgUrl" placeholder="Image URL">
+    </form>
+
+    <form action="/" method="get">
+        <select name="category" class="form-control">
+            <option value="all">all</option>
+            <option value="clothes">clothes</option>
+            <option value="phones">phones</option>
+            <option value="TVS">TVS</option>
+        </select>
+        <button type="submit" class="btn btn-primary mt-5" value="filter">submit</button>
+
+    </form>
+</div>
+
+<%-include('parts/footer.ejs')%>

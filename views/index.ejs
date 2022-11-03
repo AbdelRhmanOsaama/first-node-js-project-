@@ -1,0 +1,45 @@
+<%-include('parts/head.ejs')%>
+
+<%-include('parts/navbar.ejs')%>
+
+        <div class="container">
+
+            <form action="/" method="get">
+                <select name="category" class="form-control">
+                    <option value="all">all</option>
+                    <option value="clothes">clothes</option>
+                    <option value="phones">phones</option>
+                    <option value="TVS">TVS</option>
+                </select>
+                <button type="submit" class="btn btn-primary mt-5" value="filter">submit</button>
+
+            </form>
+
+            <div class="row mt-5">
+                <% for(let product of products) { %>
+                    <div class="col-12 col-md-6 col-lg-3 col-xl-4 mt-5">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="<%=product.image%>" style="width: 230px; height:230px;" alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="/product/<%=product._id%>"><%=product.name%></a>
+                                    <p>Price: <%=product.price%></p>
+                                </h5>
+                                
+                                <form action="/cart" method="post">
+                                    <input class="rounded" name="amount"  type="number">
+                                    <input type="hidden" name="name" value="<%=product.name%>">
+                                    <input type="hidden" name="price" value="<%=product.price%>">
+                                    <input type="hidden" name="productId" value="<%=product._id%>">
+                                    <input class="btn btn-primary rounded" type="submit" value="Add to cart">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
+
+        
+
+<%-include('parts/footer.ejs')%>

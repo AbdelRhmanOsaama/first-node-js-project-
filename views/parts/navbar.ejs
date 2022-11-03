@@ -1,0 +1,31 @@
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">E-commerce</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="/">Home</a></li>
+            <%if(isSeller){%>
+                <li><a href="/seller/add">Add products</a></li>
+                <li><a href="/seller/orders">Manage orders</a></li>
+            <%}%>
+            <%if(isAuth){%>
+                <li><a href="/orders">orders</a></li>
+                <li><a href="/cart">Cart</a></li>
+            <%}else{%>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">sign up</a></li>
+            <%}%>
+            
+            <%if(isAuth){%>
+                <li>
+                    <form action="/logout" method="post">
+                        <input type="submit" value="logout" class="btn btn-danger">
+                    </form>
+                </li>
+            <%}%>
+        </ul>
+        
+    </div>
+</nav>

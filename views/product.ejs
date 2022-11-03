@@ -1,0 +1,21 @@
+<%-include('parts/head.ejs')%>
+
+<%-include('parts/navbar.ejs')%>
+
+<div class="container">
+    <div class="row">
+        <div class="col col-12 col-md-6">
+            <img class="card-img-top" src="<%=product.image%>" style="width: 230px; height:230px;" alt="Card image cap">
+            <form action="/cart">
+                <input class="rounded"  type="number" name="amount">
+                <input class="btn btn-primary rounded" type="submit" value="Add to cart">
+            </form>
+        </div>
+        <div class="col col-12 col-md-6">
+            <h3><%=product.name%></h3>
+            <p><%=product.description%></p>
+            <p>Price:<%=product.price%></p>
+        </div>
+    </div>
+</div>
+<%-include('parts/footer.ejs')%>
